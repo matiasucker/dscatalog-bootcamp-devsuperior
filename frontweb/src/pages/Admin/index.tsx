@@ -20,9 +20,7 @@ const Admin = () => {
           </Route>
         </Switch>
       </div>
-
     </div>
-
   );
 };
 

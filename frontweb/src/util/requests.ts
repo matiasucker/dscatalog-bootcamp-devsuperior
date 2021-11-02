@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import qs from 'qs';
 
 type LoginResponse = {
@@ -27,7 +27,7 @@ export const requestBackendLogin = (loginData : LoginData) => {
     const headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
         Authorization: 'Basic ' + window.btoa(CLIENT_ID + ':' + CLIENT_SECRET)
-    }
+    };
 
     const data = qs.stringify({
         ...loginData,
@@ -35,6 +35,10 @@ export const requestBackendLogin = (loginData : LoginData) => {
     });
 
     return axios({method: 'POST', baseURL: BASE_URL, url: '/oauth/token', data, headers});
+}
+
+export const requestBackend = (config: AxiosRequestConfig) => {
+    return axios({...config, baseURL: BASE_URL});
 }
 
 export const saveAuthData = (obj : LoginResponse) => {

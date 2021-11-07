@@ -3,7 +3,10 @@
   min-height: 70px;
 }
 
-.nav-logo-text,
+.nav-logo-text {
+  color: #fff;
+}
+
 .nav-logo-text:hover {
   color: #fff;
 }
@@ -16,6 +19,7 @@
 }
 
 .main-menu a {
+  font-style: normal;
   color: rgba(255, 255, 255, 0.5);
 }
 

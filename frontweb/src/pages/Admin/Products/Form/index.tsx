@@ -51,7 +51,6 @@ const Form = () => {
   }, [isEditing, productId, setValue]);
 
   const onSubmit = (formData: Product) => {
-
     const config: AxiosRequestConfig = {
       method: isEditing ? 'PUT' : 'POST',
       url: isEditing ? `/products/${productId}` : '/products',
@@ -134,16 +133,15 @@ const Form = () => {
                   {errors.price?.message}
                 </div>
               </div>
-            </div>
 
-            <div className="margin-bottom-30">
+              <div className="margin-bottom-30">
                 <input
                   {...register('imgUrl', {
                     required: 'Campo obrigatório',
                     pattern: {
                       value: /^(https?|chrome):\/\/[^\s$.?#].[^\s]*$/gm,
-                      message: 'Deve ser uma URL válida'
-                    }
+                      message: 'Deve ser uma URL válida',
+                    },
                   })}
                   type="text"
                   className={`form-control base-input ${
@@ -156,6 +154,7 @@ const Form = () => {
                   {errors.imgUrl?.message}
                 </div>
               </div>
+            </div>
 
             <div className="col-lg-6">
               <div>

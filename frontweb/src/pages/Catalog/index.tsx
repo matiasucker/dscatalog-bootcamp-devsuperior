@@ -17,11 +17,11 @@ const Catalog = () => {
   useEffect(() => {
     const params: AxiosRequestConfig = {
       method: 'GET',
-      url: "/products",
+      url: '/products',
       params: {
         page: 0,
         size: 12,
-      }
+      },
     };
 
     setIsLoading(true);
@@ -41,17 +41,20 @@ const Catalog = () => {
       </div>
 
       <div className="row">
-        {isLoading ? <CardLoader /> : (
+        {isLoading ? (
+          <CardLoader />
+        ) : (
           page?.content.map((product) => (
-          <div className="col-sm-6 col-lg-4 col-xl-3" key={product.id}>
-            <Link to="/products/1">
-              <ProductCard product={product} />
-            </Link>
-          </div>
-        )))}
+            <div className="col-sm-6 col-lg-4 col-xl-3" key={product.id}>
+              <Link to="/products/1">
+                <ProductCard product={product} />
+              </Link>
+            </div>
+          ))
+        )}
       </div>
       <div className="row">
-        <Pagination />
+        <Pagination pageCount={page ? page?.totalPages : 0} range={3} />
       </div>
     </div>
   );

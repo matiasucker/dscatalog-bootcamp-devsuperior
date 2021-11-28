@@ -17,6 +17,10 @@
     box-shadow: none;
 }
 
+.product-filter-name-container input::placeholder {
+    color: #9E9E9E;
+}
+
 @media (min-width: 768px) {
   .product-filter-container {
     margin-left: 20px;
